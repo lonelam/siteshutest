@@ -31,8 +31,7 @@ preg_match_all("/Set\-Cookie:([^;]*);/", $header, $matches);
 $info['cookie']  = substr($matches[1][0], 1);
 $info['content'] = $body;
 curl_close($curl);
-print_r($info['content']);
-//preg_match_all('/<td width="320" valign="top"><h1>([^;]*) <span></span><span class="edit" style="float:none;"> /',$info['content'],$Realname);
-//$Rname=substr($Realname[1][0], 1);
-//print_r($Rname.',hello.');
+//print_r($info['content']);
+preg_match('/valign="top"><h1>(.*) <span>/',$info['content'],$Realname);
+print_r($Realname[1].',Hello!');
 ?>
